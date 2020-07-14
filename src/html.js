@@ -21,16 +21,7 @@ export default function HTML(props) {
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        <script>
-          if (window.netlifyIdentity)
-          {window.netlifyIdentity.on('init', function (user) {
-            if (!user) {
-              window.netlifyIdentity.on('login', function () {
-                document.location.href = '/admin/';
-              });
-            }
-          })}
-        </script>
+        <script src="/admin/netlify-auth.js"></script>
         {props.postBodyComponents}
       </body>
     </html>
