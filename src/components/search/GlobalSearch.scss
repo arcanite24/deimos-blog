@@ -1,0 +1,14 @@
+.global-search {
+  input {
+    background: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0.25rem 0.5rem;
+
+    &::placeholder {
+      color: white;
+      font-weight: lighter;
+      font-size: 0.8rem;
+    }
+  }
+}

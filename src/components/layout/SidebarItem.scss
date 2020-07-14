@@ -1,0 +1,30 @@
+@import '../../variables.scss';
+
+.sidebar-item {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  color: darken($color: white, $amount: 10%);
+  border-radius: 15px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &:hover:not(&--active) {
+    span {
+      border-bottom: 2px solid white;
+    }
+  }
+
+  &--active {
+    background-color: $deimos-primary;
+  }
+
+  svg {
+    margin-right: 0.5rem;
+  }
+
+  span {
+  }
+}

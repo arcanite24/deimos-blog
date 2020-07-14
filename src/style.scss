@@ -1,0 +1,18 @@
+@import './variables.scss';
+
+@import './styles/epsi-ui.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  color: white;
+  font-family: 'Sen', sans-serif;
+}
+
+body {
+  background-color: $deimos-bg;
+}

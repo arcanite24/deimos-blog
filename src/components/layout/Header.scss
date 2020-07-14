@@ -1,0 +1,23 @@
+@import '../../variables.scss';
+@import '../../styles/include-media';
+.header {
+  border-bottom: 1px solid $deimos-border-color-primary;
+
+  img {
+    margin: 0;
+    margin-right: 4rem;
+
+    @include media('<=phone') {
+      margin-right: 1rem;
+    }
+  }
+
+  &__actions {
+    height: 100%;
+    margin-left: auto;
+
+    .header-action:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

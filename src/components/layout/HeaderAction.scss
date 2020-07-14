@@ -1,0 +1,13 @@
+@import '../../variables.scss';
+
+.header-action {
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: 3px solid white;
+  }
+
+  &--active {
+    border-bottom: 3px solid $deimos-primary;
+  }
+}
