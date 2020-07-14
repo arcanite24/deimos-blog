@@ -1,6 +1,7 @@
 backend:
   name: github
-  branch: arcanite24/deimos-blog
+  repo: arcanite24/deimos-blog
+  branch: master
 
 media_folder: 'uploads'
 
