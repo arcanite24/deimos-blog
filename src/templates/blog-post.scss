@@ -1,0 +1,36 @@
+@import '../styles/include-media';
+
+.blog-post {
+  padding: 8rem;
+  padding-top: 5rem;
+
+  @include media('<=phone') {
+    padding: 4rem;
+  }
+
+  header {
+    small {
+      font-style: italic;
+      color: rgba($color: white, $alpha: 0.5);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      margin-bottom: 2rem;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  section {
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+}

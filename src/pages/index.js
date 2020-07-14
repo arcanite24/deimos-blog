@@ -13,6 +13,26 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
+      <p>{JSON.stringify(posts)}</p>
+      <pre>{JSON.stringify(data.site)}</pre>
+      <ul>
+        {posts.map(
+          ({
+            node: {
+              html,
+              frontmatter: { title, date },
+              fields: { slug },
+            },
+          }) => (
+            <li key={slug}>
+              <Link to={slug}>
+                {title} - {date}
+              </Link>
+              <pre>{html}</pre>
+            </li>
+          )
+        )}
+      </ul>
     </Layout>
   );
 };
@@ -29,6 +49,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
+          html
           excerpt
           fields {
             slug

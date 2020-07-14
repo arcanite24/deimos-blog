@@ -14,7 +14,19 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'author'
+    label: 'Author'
+    folder: '_meta/author'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Bio', name: 'bio', widget: 'string' }
+      - { label: 'Avatar', name: 'avatar', widget: 'image' }
+      - { label: 'Twitter', name: 'twitter', widget: 'string' }
