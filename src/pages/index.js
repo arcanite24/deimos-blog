@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import PostItem from '../components/posts/PostItem';
 import find from 'lodash/find';
 
+import './index.scss';
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.posts.edges;
@@ -18,7 +20,7 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       {/* <p>{JSON.stringify(posts)}</p>
       <p>{JSON.stringify(data.site)}</p> */}
-      <div className="flex flex-col w-100">
+      <div className="flex flex-col w-100 posts">
         {posts.map(
           ({
             node: {

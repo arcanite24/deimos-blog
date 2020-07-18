@@ -2,6 +2,14 @@ import React from 'react';
 import './Sidebar.scss';
 import SidebarItem from './SidebarItem';
 import { useStaticQuery, graphql } from 'gatsby';
+import groupBy from 'lodash/groupBy';
+
+// I'm leaving this here because there's a weird bug on Gatsby where he can't recognize the icon field on the frontmatter
+const Icons = {
+  '/cybersec/': 'lock',
+};
+
+const isActive = slug => window.location.pathname.includes(slug);
 
 const Sidebar = () => {
   const data = useStaticQuery(graphql`
@@ -18,7 +26,6 @@ const Sidebar = () => {
               }
               frontmatter {
                 title
-                icon
               }
             }
           }
@@ -34,7 +41,7 @@ const Sidebar = () => {
               }
               frontmatter {
                 title
-                icon
+                category
               }
             }
           }
@@ -43,16 +50,33 @@ const Sidebar = () => {
     }
   `);
 
-  console.log(data);
-  const posts = data.posts.edges;
-  const categories = data.categories.edges;
+  const posts = groupBy(
+    data.posts.edges.map(p => p.node.childMarkdownRemark),
+    post => post.frontmatter.category.replace(/\//g, '')
+  );
+  const categories = data.categories.edges.map(c => c.node.childMarkdownRemark);
+  console.log(posts, categories);
 
   return (
-    <aside className="sidebar flex flex-col align-center">
-      <SidebarItem icon="coffee" active={true}>
+    <aside className="sidebar flex flex-col">
+      <SidebarItem
+        icon="home"
+        active={window.location.pathname === '/'}
+        slug="/"
+      >
         Home
       </SidebarItem>
-      <SidebarItem icon="check-square">Test</SidebarItem>
+      {categories.map(({ fields: { slug }, frontmatter: { title } }) => (
+        <SidebarItem
+          key={slug}
+          icon={Icons[slug]}
+          slug={slug}
+          active={isActive(slug)}
+          items={posts[slug.replace(/\//g, '')]}
+        >
+          {title}
+        </SidebarItem>
+      ))}
     </aside>
   );
 };

@@ -35,6 +35,14 @@ module.exports = {
         name: 'authors',
       },
     },
+
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/_meta/categories`,
+        name: 'categories',
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

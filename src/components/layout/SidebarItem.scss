@@ -4,8 +4,9 @@
   width: 100%;
   padding: 0.5rem 2rem;
   color: darken($color: white, $amount: 10%);
-  border-radius: 15px;
+  border-radius: 20px;
   cursor: pointer;
+  margin-bottom: 1rem;
 
   &:not(:last-child) {
     margin-bottom: 1rem;
@@ -23,8 +24,5 @@
 
   svg {
     margin-right: 0.5rem;
-  }
-
-  span {
   }
 }

@@ -15,11 +15,27 @@
   p {
     font-size: 0.9rem;
     color: rgba($color: white, $alpha: 0.75);
+    margin-bottom: 1rem;
   }
 
   &__author {
+    text-align: right;
+
     strong {
       font-size: 0.7rem;
+    }
+
+    h4 {
+      text-transform: none;
+      font-family: 'Sen', sans-serif;
+    }
+
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin: 0;
+      margin-left: 1rem;
     }
   }
 }

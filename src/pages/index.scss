@@ -1,0 +1,7 @@
+@import '../styles/include-media';
+
+.posts {
+  @include media('>desktop') {
+    padding: 0 10rem;
+  }
+}

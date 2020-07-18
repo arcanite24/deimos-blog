@@ -1,68 +1,38 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import PropTypes from 'prop-types';
 
-import { rhythm } from '../utils/typography';
+import './Bio.scss';
 
-const Bio = () => {
-  const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            twitter
-          }
-        }
-      }
-    }
-  `);
-
-  const { author, social } = data.site.siteMetadata;
+const Bio = ({ author }) => {
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
-      <img
-        src={'https://via.placeholder.com/150'}
-        alt={author.name}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-          width: '64px',
-        }}
-      />
-      <p>
-        Written by <strong>{author.name}</strong> {author.summary}
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
-      </p>
+    <div className="bio flex flex-row align-center">
+      <img src={author.avatar} alt={author.name} />
+      <div className="flex flex-col">
+        <p>
+          Escrito por <strong>{author.name}</strong> |{' '}
+          <a
+            href={`https://twitter.com/${author.twitter}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {author.twitter}
+          </a>
+        </p>
+        <p>
+          <small>{author.bio}</small>
+        </p>
+      </div>
     </div>
   );
+};
+
+Bio.propTypes = {
+  author: PropTypes.shape({
+    name: PropTypes.string,
+    twitter: PropTypes.string,
+    bio: PropTypes.string,
+    avatar: PropTypes.string,
+  }),
 };
 
 export default Bio;

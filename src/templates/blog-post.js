@@ -9,7 +9,9 @@ import { rhythm, scale } from '../utils/typography';
 import './blog-post.scss';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark;
+  const author = data.author.frontmatter;
+  console.log(author);
+  const post = data.post;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
 
@@ -33,17 +35,17 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           }}
         />
         <footer>
-          <Bio />
+          <Bio author={author} />
         </footer>
       </article>
 
       <nav>
         <ul
           style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            listStyle: 'none',
             padding: 0,
           }}
         >
@@ -57,7 +59,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+                {next.frontmatter.title}
               </Link>
             )}
           </li>
@@ -76,7 +78,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html
@@ -85,6 +87,15 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         category
+        author
+      }
+    }
+    author: markdownRemark(frontmatter: { twitter: { eq: "@nerijs" } }) {
+      frontmatter {
+        name
+        twitter
+        avatar
+        bio
       }
     }
   }
