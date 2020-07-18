@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "deimos-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Deimos blog app built with Gatsby and Netlify CMS",
+  "version": "0.0.1",
+  "author": "Brandon G. Neri <neri@deimos.app>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/arcanite24/deimos-blog/issues"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
