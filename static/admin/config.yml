@@ -21,11 +21,17 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
 
   - name: 'category'
-    label: 'Blog'
+    label: 'Category'
     folder: '_meta/categories'
     create: true
     slug: '{{slug}}'
     fields:
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: 'category',
+        }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - {
@@ -41,6 +47,7 @@ collections:
     create: true
     slug: '{{slug}}'
     fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'author' }
       - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Bio', name: 'bio', widget: 'string' }
       - { label: 'Avatar', name: 'avatar', widget: 'image' }
