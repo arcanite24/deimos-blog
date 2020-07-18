@@ -13,7 +13,6 @@ const PostService = {
               }
               frontmatter {
                 title
-                icon
               }
             }
           }
