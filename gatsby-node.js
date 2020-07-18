@@ -11,6 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: { frontmatter: { layout: { eq: "blog" } } }
         ) {
           edges {
             node {
@@ -19,6 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                layout
               }
             }
           }
@@ -34,7 +36,11 @@ exports.createPages = async ({ graphql, actions }) => {
   console.log('RESULT', result);
 
   // Create blog posts pages.
+  // TODO: Find a more optimal way to just query to blog files
   const posts = result.data.allMarkdownRemark.edges;
+  // .filter(
+  //   p => p.node.frontmatter.layout === 'blog'
+  // );
 
   console.log('FOO', posts[0]);
 
@@ -59,8 +65,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
-    console.log('NODE', node);
-    console.log('VALUE', value);
     createNodeField({
       name: `slug`,
       node,
