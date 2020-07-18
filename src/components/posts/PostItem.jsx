@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './PostItem.scss';
+
 const PostItem = ({ title, excerpt, slug, children, author }) => {
   return (
     <div className="post-item flex flex-col">
