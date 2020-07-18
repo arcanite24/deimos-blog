@@ -3,4 +3,23 @@
 .post-item {
   width: 100%;
   border: 1px solid $deimos-border-color-primary;
+  padding: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: rgba($color: white, $alpha: 0.75);
+  }
+
+  &__author {
+    strong {
+      font-size: 0.7rem;
+    }
+  }
 }

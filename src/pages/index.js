@@ -13,17 +13,16 @@ const BlogIndex = ({ data, location }) => {
     a => a.node.childMarkdownRemark.frontmatter
   );
 
-  console.log(posts);
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <p>{JSON.stringify(posts)}</p>
-      <p>{JSON.stringify(data.site)}</p>
-      <ul>
+      {/* <p>{JSON.stringify(posts)}</p>
+      <p>{JSON.stringify(data.site)}</p> */}
+      <div className="flex flex-col w-100">
         {posts.map(
           ({
             node: {
+              excerpt,
               frontmatter: { title, date, author: postAuthor },
               fields: { slug },
             },
@@ -31,11 +30,14 @@ const BlogIndex = ({ data, location }) => {
             <PostItem
               title={title}
               key={slug}
+              excerpt={excerpt}
+              slug={slug}
+              date={date}
               author={find(authors, author => author.twitter === postAuthor)}
             ></PostItem>
           )
         )}
-      </ul>
+      </div>
     </Layout>
   );
 };

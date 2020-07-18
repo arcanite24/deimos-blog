@@ -10,7 +10,7 @@ const Layout = ({ location, title, children }) => {
       <Header></Header>
       <div className="flex flex-row">
         <Sidebar></Sidebar>
-        <main>{children}</main>
+        <main className="p-4 flex-1">{children}</main>
       </div>
       <footer className="p-4">
         © {new Date().getFullYear()}, Built with ❤ by

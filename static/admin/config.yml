@@ -3,7 +3,7 @@ backend:
   repo: arcanite24/deimos-blog
   branch: master
 
-media_folder: 'uploads'
+media_folder: 'static/uploads'
 
 collections:
   - name: 'blog' # Used in routes, e.g., /admin/collections/blog
