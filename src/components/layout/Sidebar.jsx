@@ -9,9 +9,9 @@ const Icons = {
   '/cybersec/': 'lock',
 };
 
-const isActive = slug => window.location.pathname.includes(slug);
+const isActive = (slug, location) => location.pathname.includes(slug);
 
-const Sidebar = () => {
+const Sidebar = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       categories: allFile(
@@ -61,8 +61,9 @@ const Sidebar = () => {
     <aside className="sidebar flex flex-col">
       <SidebarItem
         icon="home"
-        active={window.location.pathname === '/'}
+        active={location.pathname === '/'}
         slug="/"
+        location={location}
       >
         Home
       </SidebarItem>
@@ -71,8 +72,9 @@ const Sidebar = () => {
           key={slug}
           icon={Icons[slug]}
           slug={slug}
-          active={isActive(slug)}
+          active={isActive(slug, location)}
           items={posts[slug.replace(/\//g, '')]}
+          location={location}
         >
           {title}
         </SidebarItem>

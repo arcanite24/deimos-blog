@@ -5,7 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { navigate, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-const SidebarItem = ({ children, active = false, icon, slug, items = [] }) => {
+const SidebarItem = ({
+  children,
+  active = false,
+  icon,
+  slug,
+  items = [],
+  location,
+}) => {
   return (
     <div className="flex flex-col">
       <div
@@ -23,7 +30,7 @@ const SidebarItem = ({ children, active = false, icon, slug, items = [] }) => {
             <li
               key={slug}
               className={classnames({
-                'c-primary': window.location.pathname === slug,
+                'c-primary': location.pathname === slug,
               })}
             >
               <Link to={slug}>{title}</Link>

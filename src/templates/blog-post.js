@@ -4,13 +4,12 @@ import { Link, graphql } from 'gatsby';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { rhythm, scale } from '../utils/typography';
 
 import './blog-post.scss';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const author = data.author.frontmatter;
-  console.log(author);
+  console.log(location);
   const post = data.post;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
@@ -31,7 +30,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
-            marginBottom: rhythm(1),
+            marginBottom: '1rem',
           }}
         />
         <footer>
