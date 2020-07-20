@@ -4,7 +4,7 @@ import './Header.scss';
 import GlobalSearch from '../search/GlobalSearch';
 // import HeaderAction from './HeaderAction';
 
-const Header = () => {
+const Header = ({ posts }) => {
   return (
     <header className="header py-4 px-8 flex flex-row align-center">
       <img
@@ -13,7 +13,7 @@ const Header = () => {
         style={{ width: '150px' }}
       />
 
-      <GlobalSearch className="ml-auto"></GlobalSearch>
+      <GlobalSearch posts={posts} className="ml-auto"></GlobalSearch>
 
       {/* I'm removing this for now, we don't have an actual use case for this */}
       {/* <div className="header__actions flex flex-row">

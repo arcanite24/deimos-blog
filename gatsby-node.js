@@ -1,5 +1,9 @@
 const path = require('path');
+const fs = require('fs');
 const { createFilePath } = require('gatsby-source-filesystem');
+const lunr = require('lunr');
+require('lunr-languages/lunr.stemmer.support')(lunr);
+require('lunr-languages/lunr.es')(lunr);
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -15,12 +19,15 @@ exports.createPages = async ({ graphql, actions }) => {
         ) {
           edges {
             node {
+              id
+              excerpt(pruneLength: 500)
               fields {
                 slug
               }
               frontmatter {
                 title
                 layout
+                author
               }
             }
           }
@@ -33,31 +40,42 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
 
-  console.log('RESULT', result);
-
-  // Create blog posts pages.
-  // TODO: Find a more optimal way to just query to blog files
   const posts = result.data.allMarkdownRemark.edges;
-  // .filter(
-  //   p => p.node.frontmatter.layout === 'blog'
-  // );
 
-  console.log('FOO', posts[0]);
+  const idx = lunr(function () {
+    const _this = this;
+    _this.field('title');
+    _this.field('excerpt');
+    _this.field('author');
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+    posts.forEach((post, index) => {
+      const previous =
+        index === posts.length - 1 ? null : posts[index + 1].node;
+      const next = index === 0 ? null : posts[index - 1].node;
 
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
+      _this.add({
+        id: post.node.id,
+        title: post.node.frontmatter.title,
+        excerpt: post.node.excerpt,
+        author: post.node.frontmatter.author,
+      });
+
+      createPage({
+        path: post.node.fields.slug,
+        component: blogPost,
+        context: {
+          slug: post.node.fields.slug,
+          previous,
+          next,
+        },
+      });
     });
   });
+
+  fs.writeFileSync(
+    path.resolve(__dirname, 'static', 'idx.json'),
+    JSON.stringify(idx.toJSON())
+  );
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
