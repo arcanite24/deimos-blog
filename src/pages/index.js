@@ -18,8 +18,6 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      {/* <p>{JSON.stringify(posts)}</p>
-      <p>{JSON.stringify(data.site)}</p> */}
       <div className="flex flex-col w-100 posts">
         {posts.map(
           ({
@@ -81,7 +79,8 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt
+          id
+          excerpt(pruneLength: 500)
           fields {
             slug
           }

@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .global-search {
   input {
     background: none;
@@ -9,6 +11,22 @@
       color: white;
       font-weight: lighter;
       font-size: 0.8rem;
+    }
+  }
+
+  &__results {
+    position: absolute;
+    background-color: $deimos-bg;
+    padding: 0.5rem;
+    border: 1px solid $deimos-border-color-primary;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+
+    li {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
