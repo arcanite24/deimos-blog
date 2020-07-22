@@ -36,8 +36,8 @@ const Layout = ({ location, title, children }) => {
     <div className="w-100 flex flex-col">
       <Header
         posts={data.posts.edges
-          .map(p => ({
-            [p.node.id]: { ...p.node.fields, ...p.node.frontmatter },
+          .map(post => ({
+            [post.node.id]: { ...post.node.fields, ...post.node.frontmatter },
           }))
           .reduce((acc, curr) => ({ ...acc, ...curr }), {})}
       ></Header>

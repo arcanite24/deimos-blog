@@ -5,6 +5,12 @@ const lunr = require('lunr');
 require('lunr-languages/lunr.stemmer.support')(lunr);
 require('lunr-languages/lunr.es')(lunr);
 
+const writeFile = (path, payload) => {
+  fs.writeFileSync(path, payload);
+};
+
+const LUNR_INDEX_PATH = path.resolve(__dirname, 'static', 'idx.json');
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -72,10 +78,8 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  fs.writeFileSync(
-    path.resolve(__dirname, 'static', 'idx.json'),
-    JSON.stringify(idx.toJSON())
-  );
+  const idxPayload = JSON.stringify(idx.toJSON());
+  writeFile(LUNR_INDEX_PATH, idxPayload);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

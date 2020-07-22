@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import classnames from 'classnames';
 import useKeyPress from '../../hooks/useKeyPress';
 import { navigate } from 'gatsby';
+import { KeyEnum } from '../../enums/keys.enum';
 
 const idx = lunr.Index.load(indexCache);
 
@@ -26,21 +27,26 @@ const GlobalSearch = ({ placeholder = 'Search something', posts }) => {
   const [selected, setSelected] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const upPressed = useKeyPress(['ArrowUp']);
-  const downPressed = useKeyPress(['ArrowDown']);
-  const enterPressed = useKeyPress(['Enter']);
+  const upPressed = useKeyPress([KeyEnum.ArrowUp]);
+  const downPressed = useKeyPress([KeyEnum.ArrowDown]);
+  const enterPressed = useKeyPress([KeyEnum.Enter]);
+
+  const setIndex = (newSelected, newIndex) => {
+    setSelected(newSelected);
+    setCurrentIndex(newIndex);
+  };
 
   useEffect(() => {
+    let newIndex = currentIndex;
+
     if (upPressed) {
-      const newIndex = currentIndex > 0 ? currentIndex - 1 : results.length - 1;
-      setSelected(results[newIndex].ref);
-      setCurrentIndex(newIndex);
+      newIndex = currentIndex > 0 ? currentIndex - 1 : results.length - 1;
+      setIndex(results[newIndex].ref, newIndex);
     }
 
     if (downPressed) {
-      const newIndex = currentIndex < results.length - 1 ? currentIndex + 1 : 0;
-      setSelected(results[newIndex].ref);
-      setCurrentIndex(newIndex);
+      newIndex = currentIndex < results.length - 1 ? currentIndex + 1 : 0;
+      setIndex(results[newIndex].ref, newIndex);
     }
 
     if (enterPressed) {
@@ -55,15 +61,10 @@ const GlobalSearch = ({ placeholder = 'Search something', posts }) => {
     if (value && value.length >= MIN_SEARCH_LENGTH) {
       const foundPosts = search(value);
       setResults([
-        ...foundPosts.map(p => ({
-          ...posts[p.ref],
-          ref: p.ref,
+        ...foundPosts.map(post => ({
+          ...posts[post.ref],
+          ref: post.ref,
         })),
-        {
-          slug: 'asdasdasd',
-          title: 'Otra wea',
-          ref: '2',
-        },
       ]);
       setSelected(foundPosts[0]?.ref);
       setCurrentIndex(0);
