@@ -9,7 +9,7 @@ const writeFile = (path, payload) => {
   fs.writeFileSync(path, payload);
 };
 
-const LUNR_INDEX_PATH = path.resolve(__dirname, 'static', 'idx.json');
+const LUNR_INDEX_PATH = path.resolve(path.resolve(), 'static', 'idx.json');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
