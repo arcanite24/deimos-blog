@@ -66,11 +66,14 @@ exports.createPages = async ({ graphql, actions }) => {
         author: post.node.frontmatter.author,
       });
 
+      console.log(post.node.frontmatter.author);
+
       createPage({
         path: post.node.fields.slug,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
+          author: post.node.frontmatter.author,
           previous,
           next,
         },

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 
 import './PostItem.scss';
+import UiService from '../../services/ui.service';
 
 const PostItem = ({ title, excerpt, slug, children, author, date }) => {
   return (
@@ -17,7 +18,10 @@ const PostItem = ({ title, excerpt, slug, children, author, date }) => {
             <h4>{author.name}</h4>
             <small>{author.twitter}</small>
           </div>
-          <img src={author.avatar} alt={`${author.name} avatar`} />
+          <img
+            src={UiService.formatStaticUrl(author.avatar)}
+            alt={`${author.name} avatar`}
+          />
         </div>
       </div>
     </div>

@@ -84,6 +84,7 @@ const GlobalSearch = ({ placeholder = 'Search something', posts }) => {
         <ul className="global-search__results flex flex-col">
           {results.map(post => (
             <li
+              onClick={() => navigate(post.slug)}
               key={post.slug}
               className={classnames(
                 {

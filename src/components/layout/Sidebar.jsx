@@ -3,6 +3,7 @@ import './Sidebar.scss';
 import SidebarItem from './SidebarItem';
 import { useStaticQuery, graphql } from 'gatsby';
 import groupBy from 'lodash/groupBy';
+import { object } from 'prop-types';
 
 // I'm leaving this here because there's a weird bug on Gatsby where he can't recognize the icon field on the frontmatter
 const Icons = {
@@ -55,7 +56,6 @@ const Sidebar = ({ location }) => {
     post => post.frontmatter.category.replace(/\//g, '')
   );
   const categories = data.categories.edges.map(c => c.node.childMarkdownRemark);
-  console.log(posts, categories);
 
   return (
     <aside className="sidebar flex flex-col">
@@ -81,6 +81,10 @@ const Sidebar = ({ location }) => {
       ))}
     </aside>
   );
+};
+
+Sidebar.propTypes = {
+  location: object,
 };
 
 export default Sidebar;

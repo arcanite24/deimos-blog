@@ -18,6 +18,10 @@
     margin-bottom: 1rem;
   }
 
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
   &__author {
     text-align: right;
 
