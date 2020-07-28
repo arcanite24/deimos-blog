@@ -45,6 +45,8 @@
     "use-debounce": "^3.4.3"
   },
   "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "prettier": "2.0.5",
     "tailwindcss": "^1.4.6"
   },
@@ -66,5 +68,13 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
   }
 }

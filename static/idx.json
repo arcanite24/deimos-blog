@@ -1,1 +1,353 @@
-{"version":"2.3.8","fields":["title","excerpt","author"],"fieldVectors":[["title/19d5d86c-e749-5408-9d30-0f638dbd1580",[0,0.288]],["excerpt/19d5d86c-e749-5408-9d30-0f638dbd1580",[1,0.288,2,0.288,3,0.452,4,0.452,5,0.452,6,0.51,7,0.51,8,0.452,9,0.452,10,0.452,11,0.396,12,0.396,13,0.396,14,0.396,15,0.396,16,0.396,17,0.396,18,0.396,19,0.396,20,0.396,21,0.396,22,0.396,23,0.487,24,0.396,25,0.396,26,0.396,27,0.396,28,0.396,29,0.396]],["author/19d5d86c-e749-5408-9d30-0f638dbd1580",[30,0.288]]],"invertedIndex":[["adipis",{"_index":9,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["amet",{"_index":7,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["aperiam",{"_index":28,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["asperior",{"_index":19,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["consectetur",{"_index":8,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["consequuntur",{"_index":15,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["debiti",{"_index":13,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["dolor",{"_index":5,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["dolorem",{"_index":11,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["eiu",{"_index":17,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["elit",{"_index":10,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["enim",{"_index":26,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["error",{"_index":27,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["et",{"_index":20,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["ipsum",{"_index":4,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["lorem",{"_index":3,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["magni",{"_index":23,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["minima",{"_index":24,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["nerij",{"_index":30,"title":{},"excerpt":{},"author":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}}}],["nesciunt",{"_index":25,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["odio",{"_index":29,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["odit",{"_index":21,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["perferendi",{"_index":12,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["qua",{"_index":14,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["reprehenderit",{"_index":22,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["sint",{"_index":16,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["sit",{"_index":6,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["test",{"_index":0,"title":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"excerpt":{},"author":{}}],["vel",{"_index":18,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["wasup",{"_index":2,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}],["yo",{"_index":1,"title":{},"excerpt":{"19d5d86c-e749-5408-9d30-0f638dbd1580":{}},"author":{}}]],"pipeline":["stemmer"]}
+{
+  "version": "2.3.8",
+  "fields": ["title", "excerpt", "author"],
+  "fieldVectors": [
+    ["title/19d5d86c-e749-5408-9d30-0f638dbd1580", [0, 0.288]],
+    [
+      "excerpt/19d5d86c-e749-5408-9d30-0f638dbd1580",
+      [
+        1,
+        0.288,
+        2,
+        0.288,
+        3,
+        0.452,
+        4,
+        0.452,
+        5,
+        0.452,
+        6,
+        0.51,
+        7,
+        0.51,
+        8,
+        0.452,
+        9,
+        0.452,
+        10,
+        0.452,
+        11,
+        0.396,
+        12,
+        0.396,
+        13,
+        0.396,
+        14,
+        0.396,
+        15,
+        0.396,
+        16,
+        0.396,
+        17,
+        0.396,
+        18,
+        0.396,
+        19,
+        0.396,
+        20,
+        0.396,
+        21,
+        0.396,
+        22,
+        0.396,
+        23,
+        0.487,
+        24,
+        0.396,
+        25,
+        0.396,
+        26,
+        0.396,
+        27,
+        0.396,
+        28,
+        0.396,
+        29,
+        0.396
+      ]
+    ],
+    ["author/19d5d86c-e749-5408-9d30-0f638dbd1580", [30, 0.288]]
+  ],
+  "invertedIndex": [
+    [
+      "adipis",
+      {
+        "_index": 9,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "amet",
+      {
+        "_index": 7,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "aperiam",
+      {
+        "_index": 28,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "asperior",
+      {
+        "_index": 19,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "consectetur",
+      {
+        "_index": 8,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "consequuntur",
+      {
+        "_index": 15,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "debiti",
+      {
+        "_index": 13,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "dolor",
+      {
+        "_index": 5,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "dolorem",
+      {
+        "_index": 11,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "eiu",
+      {
+        "_index": 17,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "elit",
+      {
+        "_index": 10,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "enim",
+      {
+        "_index": 26,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "error",
+      {
+        "_index": 27,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "et",
+      {
+        "_index": 20,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "ipsum",
+      {
+        "_index": 4,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "lorem",
+      {
+        "_index": 3,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "magni",
+      {
+        "_index": 23,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "minima",
+      {
+        "_index": 24,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "nerij",
+      {
+        "_index": 30,
+        "title": {},
+        "excerpt": {},
+        "author": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} }
+      }
+    ],
+    [
+      "nesciunt",
+      {
+        "_index": 25,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "odio",
+      {
+        "_index": 29,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "odit",
+      {
+        "_index": 21,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "perferendi",
+      {
+        "_index": 12,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "qua",
+      {
+        "_index": 14,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "reprehenderit",
+      {
+        "_index": 22,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "sint",
+      {
+        "_index": 16,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "sit",
+      {
+        "_index": 6,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "test",
+      {
+        "_index": 0,
+        "title": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "excerpt": {},
+        "author": {}
+      }
+    ],
+    [
+      "vel",
+      {
+        "_index": 18,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "wasup",
+      {
+        "_index": 2,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ],
+    [
+      "yo",
+      {
+        "_index": 1,
+        "title": {},
+        "excerpt": { "19d5d86c-e749-5408-9d30-0f638dbd1580": {} },
+        "author": {}
+      }
+    ]
+  ],
+  "pipeline": ["stemmer"]
+}
