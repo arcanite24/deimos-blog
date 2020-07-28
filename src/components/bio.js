@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Bio.scss';
+import UiService from '../services/ui.service';
 
 const Bio = ({ author }) => {
   return (
     <div className="bio flex flex-row align-center">
-      <img src={author.avatar} alt={author.name} />
+      <img src={UiService.formatStaticUrl(author.avatar)} alt={author.name} />
       <div className="flex flex-col">
         <p>
           Escrito por <strong>{author.name}</strong> |{' '}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
+import { shape, object } from 'prop-types';
 
 import Bio from '../components/bio';
 import Layout from '../components/layout';
@@ -9,7 +10,6 @@ import './blog-post.scss';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const author = data.author.frontmatter;
-  console.log(location);
   const post = data.post;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
@@ -58,7 +58,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title}
+                {next.frontmatter.title} →
               </Link>
             )}
           </li>
@@ -68,10 +68,23 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   );
 };
 
+BlogPostTemplate.propTypes = {
+  data: shape({
+    site: object,
+    post: object,
+    author: object,
+  }),
+  pageContext: shape({
+    previous: object,
+    next: object,
+  }),
+  location: object,
+};
+
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String, $author: String) {
     site {
       siteMetadata {
         title
@@ -89,7 +102,7 @@ export const pageQuery = graphql`
         author
       }
     }
-    author: markdownRemark(frontmatter: { twitter: { eq: "@nerijs" } }) {
+    author: markdownRemark(frontmatter: { twitter: { eq: $author } }) {
       frontmatter {
         name
         twitter
